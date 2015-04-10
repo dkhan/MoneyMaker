@@ -1,0 +1,17 @@
+login: &login
+  adapter: mysql2
+  username: money
+  password: maker
+  host: localhost
+
+development:
+  <<: *login
+  database: mm_development
+
+test:
+  <<: *login
+  database: mm_test
+
+production:
+  <<: *login
+  database: mm_production
