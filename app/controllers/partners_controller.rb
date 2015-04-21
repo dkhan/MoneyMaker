@@ -8,17 +8,21 @@ class PartnersController < ApplicationController
   end
 
   def new
+    @partner = Partner.new
   end
 
   def create
     @partner = Partner.new(partner_params)
 
-    @partner.save
-    redirect_to @partner
+    if @partner.save
+      redirect_to @partner
+    else
+      render 'new'
+    end
   end
 
 private
-  
+
   def partner_params
     params.require(:partner).permit(:nickname, :email)
   end
