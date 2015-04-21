@@ -11,6 +11,10 @@ class PartnersController < ApplicationController
     @partner = Partner.new
   end
 
+  def edit
+    @partner = Partner.find(params[:id])
+  end
+
   def create
     @partner = Partner.new(partner_params)
 
@@ -18,6 +22,16 @@ class PartnersController < ApplicationController
       redirect_to @partner
     else
       render 'new'
+    end
+  end
+
+  def update
+    @partner = Partner.find(params[:id])
+
+    if @partner.update(partner_params)
+      redirect_to @partner
+    else
+      render 'edit'
     end
   end
 

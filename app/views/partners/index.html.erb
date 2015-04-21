@@ -6,12 +6,15 @@
   <tr>
     <th>Nickname</th>
     <th>Email</th>
+    <th colspan="2"></th>
   </tr>
 
   <% @partners.each do |partner| %>
     <tr>
       <td><%= partner.nickname %></td>
       <td><%= partner.email %></td>
+      <td><%= link_to 'Show', partner_path(partner) %></td>
+      <td><%= link_to 'Edit', edit_partner_path(partner) %></td>
     </tr>
   <% end %>
 </table>
